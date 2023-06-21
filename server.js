@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require('dotenv').config();
 var app = express();
 app.use(express.json());
 app.use(cors())
@@ -133,7 +134,7 @@ var users = [
         email: "jackwick@gmail",
     },
 ];
-const port = 2410;
+const port = process.env.PORT || 5000;
 app.post("/empapp/loginuser", function (req, res) {
     let body = { email: req.body.email, password: req.body.password };
     console.log(body);
